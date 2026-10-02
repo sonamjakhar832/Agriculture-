@@ -1,1 +1,1097 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FarmerSaathi - Smart Agriculture</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f3f8f1;
+    color:#243024;
+}
+
+header{
+    background:linear-gradient(135deg,#176b35,#49a942);
+    color:white;
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#d9ff70;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:14px;
+}
+
+.hero{
+    min-height:430px;
+    padding:70px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:linear-gradient(120deg,#e7f8df,#f8fff4);
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero h1{
+    font-size:45px;
+    color:#145c2b;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.7;
+    color:#526052;
+}
+
+.hero button{
+    margin-top:25px;
+    padding:14px 25px;
+    border:none;
+    background:#18843d;
+    color:white;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.hero-icon{
+    font-size:150px;
+}
+
+section{
+    padding:55px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    color:#176b35;
+    font-size:32px;
+}
+
+.section-title p{
+    margin-top:8px;
+    color:#657165;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-icon{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    color:#176b35;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#647064;
+    line-height:1.5;
+}
+
+.advisor{
+    background:#e5f5df;
+}
+
+.form-box{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:bold;
+}
+
+select,input{
+    width:100%;
+    padding:13px;
+    border:1px solid #cbd8c8;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.main-btn{
+    width:100%;
+    padding:14px;
+    background:#18843d;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.result{
+    display:none;
+    margin-top:25px;
+    background:#effbea;
+    border-left:5px solid #2d913f;
+    padding:20px;
+    border-radius:8px;
+    line-height:1.7;
+}
+
+.water-box{
+    background:#dff3ff;
+}
+
+.water-result{
+    margin-top:20px;
+    display:none;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    line-height:1.7;
+}
+
+.protection{
+    background:#fff9df;
+}
+
+.warning{
+    background:#fff0d5;
+    border-left:5px solid #e59a00;
+    padding:15px;
+    margin-top:20px;
+    border-radius:7px;
+    line-height:1.6;
+}
+
+.price-search{
+    max-width:700px;
+    margin:auto;
+}
+
+.price-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.price-table th,
+.price-table td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+.price-table th{
+    background:#176b35;
+    color:white;
+}
+
+.price-table tr:hover{
+    background:#f0f8ed;
+}
+
+.feature{
+    background:white;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    text-align:center;
+}
+
+.step{
+    padding:25px;
+}
+
+.step-number{
+    width:50px;
+    height:50px;
+    margin:auto auto 15px;
+    border-radius:50%;
+    background:#18843d;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+footer{
+    background:#123d22;
+    color:white;
+    text-align:center;
+    padding:35px 7%;
+}
+
+footer p{
+    margin:8px;
+    color:#c9ddcc;
+}
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav a{
+        margin:0 7px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding:50px 7%;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .hero-icon{
+        font-size:100px;
+        margin-top:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        🌾 Farmer<span>Saathi</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#advisor">Crop Advisor</a>
+        <a href="#water">Water</a>
+        <a href="#protection">Protection</a>
+        <a href="#market">Market</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>Smart Solutions for Smart Farmers 🌱</h1>
+
+        <p>
+            One simple platform to help farmers understand
+            soil, choose suitable crops, manage water,
+            identify crop problems and check agricultural
+            market information.
+        </p>
+
+        <button onclick="scrollToAdvisor()">
+            Find My Crop Solution
+        </button>
+
+    </div>
+
+    <div class="hero-icon">
+        🚜
+    </div>
+
+</section>
+
+
+<!-- PROBLEMS -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>What Problem Are You Facing?</h2>
+
+        <p>Select the problem and get practical guidance.</p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card" onclick="scrollToSection('water')">
+
+            <div class="card-icon">💧</div>
+
+            <h3>Less Water</h3>
+
+            <p>
+                Water-saving irrigation, mulching,
+                soil-moisture management and suitable
+                crop choices.
+            </p>
+
+        </div>
+
+
+        <div class="card" onclick="scrollToSection('advisor')">
+
+            <div class="card-icon">🌱</div>
+
+            <h3>Which Crop?</h3>
+
+            <p>
+                Select soil and water conditions to
+                see suitable crop options.
+            </p>
+
+        </div>
+
+
+        <div class="card" onclick="scrollToSection('protection')">
+
+            <div class="card-icon">🐛</div>
+
+            <h3>Pest / Disease</h3>
+
+            <p>
+                Describe the crop problem and receive
+                safe crop-protection guidance.
+            </p>
+
+        </div>
+
+
+        <div class="card" onclick="scrollToSection('market')">
+
+            <div class="card-icon">💰</div>
+
+            <h3>Market Price</h3>
+
+            <p>
+                Check sample mandi information and
+                connect this section to live market data.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CROP ADVISOR -->
+
+<section class="advisor" id="advisor">
+
+    <div class="section-title">
+
+        <h2>🌱 Smart Crop Advisor</h2>
+
+        <p>
+            Tell us about your field.
+        </p>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <div class="form-group">
+
+            <label>Soil Type</label>
+
+            <select id="soil">
+
+                <option value="">Select Soil</option>
+
+                <option value="loamy">Loamy Soil</option>
+
+                <option value="clay">Clay Soil</option>
+
+                <option value="sandy">Sandy Soil</option>
+
+                <option value="black">Black Soil</option>
+
+                <option value="red">Red Soil</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Water Availability</label>
+
+            <select id="waterLevel">
+
+                <option value="">Select</option>
+
+                <option value="low">Low</option>
+
+                <option value="medium">Medium</option>
+
+                <option value="high">High</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Season</label>
+
+            <select id="season">
+
+                <option value="">Select Season</option>
+
+                <option value="kharif">Kharif</option>
+
+                <option value="rabi">Rabi</option>
+
+                <option value="zaid">Zaid</option>
+
+            </select>
+
+        </div>
+
+
+        <button class="main-btn" onclick="findCrop()">
+            Find Suitable Crops
+        </button>
+
+
+        <div class="result" id="cropResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- WATER -->
+
+<section class="water-box" id="water">
+
+    <div class="section-title">
+
+        <h2>💧 Less Water Solution</h2>
+
+        <p>
+            Simple methods for improving water efficiency.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">💦</div>
+
+            <h3>Drip Irrigation</h3>
+
+            <p>
+                Delivers water close to the plant root zone
+                and can reduce unnecessary water loss.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🌾</div>
+
+            <h3>Mulching</h3>
+
+            <p>
+                Organic or suitable mulch can help reduce
+                evaporation and conserve soil moisture.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🌧️</div>
+
+            <h3>Rainwater Storage</h3>
+
+            <p>
+                Store suitable rainwater for later
+                agricultural use where practical.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🌱</div>
+
+            <h3>Crop Selection</h3>
+
+            <p>
+                Consider crops and varieties suited to
+                the local climate and available water.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CROP PROTECTION -->
+
+<section class="protection" id="protection">
+
+    <div class="section-title">
+
+        <h2>🐛 Crop Protection Assistant</h2>
+
+        <p>
+            First identify the crop problem before choosing
+            any treatment.
+        </p>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <div class="form-group">
+
+            <label>What are you seeing?</label>
+
+            <select id="problem">
+
+                <option value="">Select Problem</option>
+
+                <option value="insects">
+                    Insects / Pest
+                </option>
+
+                <option value="yellow">
+                    Yellow Leaves
+                </option>
+
+                <option value="spots">
+                    Leaf Spots
+                </option>
+
+                <option value="wilting">
+                    Plant Wilting
+                </option>
+
+                <option value="unknown">
+                    I Don't Know
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button class="main-btn" onclick="checkProblem()">
+            Get Guidance
+        </button>
+
+
+        <div class="result" id="problemResult"></div>
+
+
+        <div class="warning">
+
+            <strong>⚠️ Important:</strong><br>
+
+            This website should not automatically prescribe
+            a pesticide or chemical dose. Before using any
+            crop-protection product, identify the pest/disease
+            correctly and follow the product label and advice
+            of an authorised agricultural professional.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MARKET -->
+
+<section id="market">
+
+    <div class="section-title">
+
+        <h2>💰 Mandi / Market Information</h2>
+
+        <p>
+            Example interface — connect this section to
+            live Agmarknet/e-NAM data for a real project.
+        </p>
+
+    </div>
+
+
+    <div class="price-search">
+
+        <div class="form-group">
+
+            <label>Select Crop</label>
+
+            <select id="marketCrop" onchange="showPrice()">
+
+                <option value="">Select Crop</option>
+
+                <option value="wheat">Wheat</option>
+
+                <option value="mustard">Mustard</option>
+
+                <option value="maize">Maize</option>
+
+                <option value="bajra">Bajra</option>
+
+                <option value="guar">Guar</option>
+
+            </select>
+
+        </div>
+
+
+        <table class="price-table">
+
+            <thead>
+
+                <tr>
+                    <th>Crop</th>
+                    <th>Market</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="priceBody">
+
+                <tr>
+                    <td colspan="4">
+                        Select a crop above
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="feature">
+
+    <div class="section-title">
+
+        <h2>How FarmerSaathi Works</h2>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">1</div>
+
+            <h3>Enter Details</h3>
+
+            <p>
+                Enter soil, season and water information.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">2</div>
+
+            <h3>Get Guidance</h3>
+
+            <p>
+                The system analyses the information.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">3</div>
+
+            <h3>Check Market</h3>
+
+            <p>
+                Compare available market information.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">4</div>
+
+            <h3>Take Action</h3>
+
+            <p>
+                Use verified agricultural advice for
+                your final decision.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>🌾 FarmerSaathi</h2>
+
+    <p>
+        Technology for better farming decisions.
+    </p>
+
+    <p>
+        Demo project — market data and agricultural
+        recommendations should be connected to verified
+        official sources before real-world use.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* Scroll functions */
+
+function scrollToSection(id){
+
+    document.getElementById(id).scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+function scrollToAdvisor(){
+
+    scrollToSection("advisor");
+
+}
+
+
+/* Crop Advisor */
+
+function findCrop(){
+
+    let soil = document.getElementById("soil").value;
+
+    let water = document.getElementById("waterLevel").value;
+
+    let season = document.getElementById("season").value;
+
+    let result = document.getElementById("cropResult");
+
+
+    if(!soil || !water || !season){
+
+        result.style.display="block";
+
+        result.innerHTML =
+        "⚠️ Please select soil type, water availability and season.";
+
+        return;
+
+    }
+
+
+    let crops = [];
+
+
+    if(water === "low"){
+
+        crops.push("Pearl Millet (Bajra)");
+        crops.push("Guar");
+        crops.push("Moong");
+        crops.push("Other locally suitable drought-tolerant crops");
+
+    }
+
+    else if(water === "medium"){
+
+        crops.push("Mustard");
+        crops.push("Maize");
+        crops.push("Gram");
+        crops.push("Suitable local pulses");
+
+    }
+
+    else{
+
+        crops.push("Wheat");
+        crops.push("Rice where locally suitable");
+        crops.push("Maize");
+        crops.push("Vegetable crops according to season");
+
+    }
+
+
+    result.style.display="block";
+
+    result.innerHTML =
+    "<strong>🌱 Possible options:</strong><br><br>" +
+    crops.join("<br>") +
+    "<br><br>" +
+    "<strong>Soil:</strong> " + soil +
+    "<br><strong>Water:</strong> " + water +
+    "<br><strong>Season:</strong> " + season +
+    "<br><br>" +
+    "⚠️ Final crop selection should also consider local climate, " +
+    "soil-test results, seed availability and local agricultural advice.";
+
+}
+
+
+/* Crop Protection */
+
+function checkProblem(){
+
+    let problem =
+    document.getElementById("problem").value;
+
+    let result =
+    document.getElementById("problemResult");
+
+
+    if(!problem){
+
+        result.style.display="block";
+
+        result.innerHTML =
+        "Please select the problem you are observing.";
+
+        return;
+
+    }
+
+
+    let message = "";
+
+
+    if(problem === "insects"){
+
+        message =
+        "<strong>🐛 Possible pest problem</strong><br><br>" +
+        "First identify the insect using a clear photograph " +
+        "or local agricultural expert. Check whether the pest " +
+        "is actually causing economically important damage. " +
+        "Use integrated pest-management methods where suitable.";
+
+    }
+
+
+    else if(problem === "yellow"){
+
+        message =
+        "<strong>🍃 Yellow leaves</strong><br><br>" +
+        "Yellowing can have several causes including nutrient " +
+        "problems, excess water, insufficient water, root problems " +
+        "or disease. A soil test and inspection can help identify " +
+        "the actual cause.";
+
+    }
+
+
+    else if(problem === "spots"){
+
+        message =
+        "<strong>🔍 Leaf spots</strong><br><br>" +
+        "Check whether spots are spreading, whether they occur " +
+        "on old or new leaves, and whether insects are present. " +
+        "Avoid spraying an unknown chemical before identifying " +
+        "the problem.";
+
+    }
+
+
+    else if(problem === "wilting"){
+
+        message =
+        "<strong>💧 Plant wilting</strong><br><br>" +
+        "Check soil moisture, root condition, drainage and signs " +
+        "of insects or disease. Wilting does not always mean " +
+        "the crop needs more water.";
+
+    }
+
+
+    else{
+
+        message =
+        "<strong>📷 Need identification</strong><br><br>" +
+        "Take a clear photograph of the crop, leaves, stem and " +
+        "affected area. Compare the symptoms with verified " +
+        "agricultural guidance or consult an agricultural expert.";
+
+    }
+
+
+    result.style.display="block";
+
+    result.innerHTML = message;
+
+}
+
+
+/* Demo market data */
+
+function showPrice(){
+
+    let crop =
+    document.getElementById("marketCrop").value;
+
+    let body =
+    document.getElementById("priceBody");
+
+
+    if(!crop){
+
+        body.innerHTML =
+        "<tr><td colspan='4'>Select a crop above</td></tr>";
+
+        return;
+
+    }
+
+
+    /*
+       DEMO VALUES ONLY.
+
+       For the final project replace these with
+       live API/database data from an authorised
+       agricultural market data source.
+    */
+
+    let data = {
+
+        wheat:["Wheat","Local Mandi","Live API","Check live data"],
+
+        mustard:["Mustard","Local Mandi","Live API","Check live data"],
+
+        maize:["Maize","Local Mandi","Live API","Check live data"],
+
+        bajra:["Bajra","Local Mandi","Live API","Check live data"],
+
+        guar:["Guar","Local Mandi","Live API","Check live data"]
+
+    };
+
+
+    let d = data[crop];
+
+
+    body.innerHTML =
+
+    "<tr>" +
+
+    "<td>" + d[0] + "</td>" +
+
+    "<td>" + d[1] + "</td>" +
+
+    "<td>" + d[2] + "</td>" +
+
+    "<td>" + d[3] + "</td>" +
+
+    "</tr>";
+
+}
+
+</script>
+
+</body>
+</html>
